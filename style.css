@@ -1,0 +1,107 @@
+body {
+	background: #fefefe url(images/bg.png) repeat-x top;
+	font-family: sans-serif;
+}
+
+ul, li {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.page {
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#map-div {
+	background-color: blue;
+	width: 100%;
+	height: 350px;
+}
+
+.page-body {
+	margin-top: 20px;
+}
+
+.page-left-column {
+	width: 280px;
+	float: left;
+	color: #963;
+}
+
+.box {
+	background-color: #f1e7d2;
+	margin-bottom: 20px;
+}
+
+.page-middle-column {
+	width: 600px;
+	background-color: #f1e7d2;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+.content {
+	padding: 8px;
+}
+
+.content h1 {
+	margin-top: 2px;
+	font-size: 20px;
+}
+
+label {
+	display: block;
+}
+
+input {
+	border: 2px solid #999;
+	display: block;
+	padding: 6px 8px;
+	width: 244px;
+	margin-bottom: 15px;
+}
+input:focus { border: 2px solid #6C6; }
+input:invalid { border: 2px solid #F00; }
+
+textarea {
+	width: 258px;
+	margin-bottom: 15px;
+}
+
+#elevationProfile {
+   	width: 580px;
+ 	height: 200px;
+ 	margin: 10px;
+}
+
+#submitButton {
+	width: 264px;
+}
+
+#hike-a-to-b-rate-icon,
+#hike-b-to-a-rate-icon,
+#hike-a-to-b-to-a-rate-icon {
+	background-color: blue;
+	width: 60px;
+	height: 60px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.place-list li {
+	height: 80px;
+}
+
+.page-bottom {
+	text-align: center;
+	font-size: 10px;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+}

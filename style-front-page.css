@@ -1,0 +1,62 @@
+body {
+	background: #fefefe url(images/bg.png) repeat-x top;
+	font-family: sans-serif;
+
+}
+
+ul, li {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	margin-bottom: 2px;
+}
+
+.page {
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.page-top {
+	text-align: center;
+}
+
+.page-body {
+	margin-top: 20px;
+}
+
+.page-column {
+	vertical-align: middle;
+	text-align: center;
+	background-color: #f1e7d2;
+	padding: 6px;
+	margin-bottom: 20px;
+}
+
+.page-column h2 {
+	margin-top: 3px;
+}
+
+.content {
+	display: inline-block;
+	text-align: left;
+}
+
+.button {
+	border: 2px solid #999;
+	display: block;
+	padding: 6px 8px;
+	width: 244px;
+	margin-bottom: 15px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 10px;
+}
+
+.page-bottom {
+	text-align: center;
+	font-size: 10px;
+}
