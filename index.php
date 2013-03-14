@@ -65,7 +65,7 @@ function renderViewPage(
 	if (count($hikesInDB) > 0){
 		echo "<ul>\n";
 		foreach ($hikesInDB as $key => $row) {
-			echo "<li><a href='view.php?hike_id=". $row->id ."'>". $row->name ."</a></li>\n";
+			echo "<li><a href='view.php?hike_id=". $row->id ."'>". html_entity_decode($row->name) ."</a></li>\n";
 		}
 		echo "</ul>\n";
 	} //END if
