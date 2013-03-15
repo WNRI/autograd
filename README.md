@@ -10,6 +10,6 @@ You need PHP and MySQL. Use the included `autograd.sql` to initialize the databa
 License
 ======
 
-The php scripts are copyright Western Norway Research Institute, see [[COPYING]] for more information.
+The php scripts are copyright Western Norway Research Institute, see COPYING for more information.
 
 We rely on [jQuery](http://jquery.com/), [Leaflet](http://leafletjs.com/), [Flot](http://www.flotcharts.org/) and [code](https://github.com/esisa/kresendoverktoy/blob/master/profilEksempel.html) from [Kresendo verktøy](http://verktoy.kresendo.no) for visualisation, some included as code, some simply referenced, but all with their own copyright and license.
