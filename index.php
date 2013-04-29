@@ -35,8 +35,9 @@ function renderViewPage(
 	$hikesInDB
 ) { ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
 <title>Autograd</title>
 <link rel="stylesheet" href="style-front-page.css" media="screen">
 </head>
@@ -52,8 +53,8 @@ function renderViewPage(
 		<div class="page-column">
 			<h2>Add path from GPX file</h2>
 			<div class="content">
-				<form action="edit.php" method="POST">
-					<input type="file" name="gpx_file_input">
+				<form action="edit.php" method="POST" enctype="multipart/form-data">
+					<input type="file" name="gpx_file_input" id="gpx_file_input">
 					<input class="button" type="submit" value="Add this path">
 				</form>
 			</div>
@@ -65,7 +66,7 @@ function renderViewPage(
 	if (count($hikesInDB) > 0){
 		echo "<ul>\n";
 		foreach ($hikesInDB as $key => $row) {
-			echo "<li><a href='view.php?hike_id=". $row->id ."'>". $row->name ."</a></li>\n";
+			echo "<li><a href='view.php?hike_id=". $row->id ."'>". html_entity_decode($row->name) ."</a></li>\n";
 		}
 		echo "</ul>\n";
 	} //END if

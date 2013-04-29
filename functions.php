@@ -2,9 +2,11 @@
 
 //Example: $gpxFilePath = 'olavskjelda.gpx';
 function getLatLngFromGpxFile($gpxFilePath){
-	$xml = simplexml_load_file($gpxFilePath);
+
+	$xml = simplexml_load_string($gpxFilePath);
 	$xml->registerXPathNamespace('gpx', 'http://www.topografix.com/GPX/1/1');
 	return $res = $xml->xpath('//gpx:trkpt');
+
 } //END getLatLngFromGpxFile()
 
 
@@ -213,8 +215,8 @@ function calculateDuration(
 	$hikeDistance
 ){
 	// rekne ut duration, frå a til b
-	$a = abs($elevationUphill) / 300;
-	$b = $hikeDistance / 2000;
+	$a = abs($elevationUphill) / 400;
+	$b = $hikeDistance / 4000;
 	$hikeDuration = $a + $b;
 
 	return $hikeDuration;

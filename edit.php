@@ -1,14 +1,20 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 
 include_once "functions.php";
 include_once "connect-db.php";
 
-if (isset($_POST['gpx_file_input'])) {
+//if (isset($_POST['gpx_file_input'])) {
+if (isset($_FILES['gpx_file_input'])) {
+
+	$filename = $_FILES['gpx_file_input']['tmp_name'];
+	$handle = fopen($filename, "rb");
+	$gpx_file_input = fread($handle, filesize($filename));
+	fclose($handle);
 
 	// a path has been submitted. more input is needed from the user before adding the hike to the database.
-	$jsArray = createJavaScriptPolylineFromGpxFile($_POST['gpx_file_input']);
+	$jsArray = createJavaScriptPolylineFromGpxFile($gpx_file_input);
 	renderEditPage($jsArray);
-
 }
 else if(
 	isset($_POST['hike_name']) AND 
@@ -92,7 +98,7 @@ LIMIT 1;";
 		else {
 
 			// insert a new place in db and get place id
-			$insertPlaceInDB = "INSERT INTO  `vestforskautograd`.`place` (
+			$insertPlaceInDB = "INSERT INTO  `place` (
  `id` ,
  `name` ,
  `point` ,
@@ -126,7 +132,7 @@ NULL ,  '". $place_name_a ."', GEOMFROMTEXT(  '". str_replace(", ", " ", $placeP
 		}
 		else {
 			// insert a new place in db
-			$insertPlaceInDB = "INSERT INTO  `vestforskautograd`.`place` (
+			$insertPlaceInDB = "INSERT INTO  `place` (
  `id` ,
  `name` ,
  `point` ,
@@ -150,7 +156,7 @@ NULL ,  '". $place_name_b ."', GEOMFROMTEXT(  '". str_replace(", ", " ", $placeP
 	}
 
 
-	$insertHikeInDB = "INSERT INTO  `vestforskautograd`.`hike` (
+	$insertHikeInDB = "INSERT INTO  `hike` (
 `id` ,
 `name` ,
 `path` ,
@@ -172,7 +178,7 @@ NULL ,  '". $place_name_b ."', GEOMFROMTEXT(  '". str_replace(", ", " ", $placeP
 )
 VALUES (
 NULL ,  
-'". $hike_name ."' , 
+'". utf8_encode($hike_name) ."' , 
 GEOMFROMTEXT(  '". $pathForMySQL ."' ) ,  
 '". $hike_description ."',  
 '". $placeAId ."',  
@@ -275,7 +281,7 @@ function initialize() {
 		<div class="page-left-column">
 			<div class="box">
 				<div class="content">
-				<form id="form_add_hike" action="" method="POST">
+				<form id="form_add_hike" action="" method="POST" accept-charset="UTF-8">
 					<label for=hike_name>Name of hike</label>
 					<input id=hike_name name=hike_name type=text placeholder="Name of hike" oninput="updateHikeName(this);" required autofocus>
 					<label for=place_name_a>Name of place A</label>
